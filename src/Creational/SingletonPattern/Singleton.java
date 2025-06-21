@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.SingletonPattern;
 
 public class Singleton {
     private static Singleton instance;
@@ -7,6 +7,7 @@ public class Singleton {
 
     public static Singleton getInstance() {
         if (instance == null) {
+            System.out.println("Singleton instance created!");
             instance = new Singleton();
         }
         return instance;

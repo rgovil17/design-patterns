@@ -1,8 +1,8 @@
-package AbstractFactoryPattern;
+package Creational.AbstractFactoryPattern;
 
-import AbstractFactoryPattern.interfaces.IBackgroundColor;
-import AbstractFactoryPattern.interfaces.ITextColor;
-import AbstractFactoryPattern.interfaces.IThemeFactory;
+import Creational.AbstractFactoryPattern.interfaces.IBackgroundColor;
+import Creational.AbstractFactoryPattern.interfaces.ITextColor;
+import Creational.AbstractFactoryPattern.interfaces.IThemeFactory;
 
 public class User {
     ITextColor textColor;

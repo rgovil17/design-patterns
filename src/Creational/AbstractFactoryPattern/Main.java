@@ -1,7 +1,7 @@
-package AbstractFactoryPattern;
+package Creational.AbstractFactoryPattern;
 
-import AbstractFactoryPattern.impl._DarkThemeFactory;
-import AbstractFactoryPattern.impl._LightThemeFactory;
+import Creational.AbstractFactoryPattern.impl._DarkThemeFactory;
+import Creational.AbstractFactoryPattern.impl._LightThemeFactory;
 
 public class Main {
     public static void main(String[] args) {

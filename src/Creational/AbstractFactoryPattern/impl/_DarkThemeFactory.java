@@ -1,8 +1,8 @@
-package AbstractFactoryPattern.impl;
+package Creational.AbstractFactoryPattern.impl;
 
-import AbstractFactoryPattern.interfaces.IBackgroundColor;
-import AbstractFactoryPattern.interfaces.ITextColor;
-import AbstractFactoryPattern.interfaces.IThemeFactory;
+import Creational.AbstractFactoryPattern.interfaces.IBackgroundColor;
+import Creational.AbstractFactoryPattern.interfaces.ITextColor;
+import Creational.AbstractFactoryPattern.interfaces.IThemeFactory;
 
 public class _DarkThemeFactory implements IThemeFactory {
     @Override

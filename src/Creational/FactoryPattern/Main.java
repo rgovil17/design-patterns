@@ -1,7 +1,7 @@
-package FactoryPattern;
+package Creational.FactoryPattern;
 
-import FactoryPattern.impl.BikeFactory;
-import FactoryPattern.impl.CarFactory;
+import Creational.FactoryPattern.impl.BikeFactory;
+import Creational.FactoryPattern.impl.CarFactory;
 
 public class Main {
     public static void main(String[] args) {

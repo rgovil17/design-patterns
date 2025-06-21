@@ -1,6 +1,6 @@
-package AbstractFactoryPattern.impl;
+package Creational.AbstractFactoryPattern.impl;
 
-import AbstractFactoryPattern.interfaces.IBackgroundColor;
+import Creational.AbstractFactoryPattern.interfaces.IBackgroundColor;
 
 public class BackgroundColorBlack implements IBackgroundColor {
     @Override

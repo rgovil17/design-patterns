@@ -1,6 +1,6 @@
-package FactoryPattern.impl;
+package Creational.FactoryPattern.impl;
 
-import FactoryPattern.interfaces.IVehicle;
+import Creational.FactoryPattern.interfaces.IVehicle;
 
 public class Car implements IVehicle {
     @Override

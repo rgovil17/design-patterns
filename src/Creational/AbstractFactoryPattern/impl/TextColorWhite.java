@@ -1,6 +1,6 @@
-package AbstractFactoryPattern.impl;
+package Creational.AbstractFactoryPattern.impl;
 
-import AbstractFactoryPattern.interfaces.ITextColor;
+import Creational.AbstractFactoryPattern.interfaces.ITextColor;
 
 public class TextColorWhite implements ITextColor {
     @Override

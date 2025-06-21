@@ -1,7 +1,7 @@
-package FactoryPattern;
+package Creational.FactoryPattern;
 
-import FactoryPattern.interfaces.IVehicle;
-import FactoryPattern.interfaces.IVehicleFactory;
+import Creational.FactoryPattern.interfaces.IVehicle;
+import Creational.FactoryPattern.interfaces.IVehicleFactory;
 
 public class User {
     private IVehicle vehicle;

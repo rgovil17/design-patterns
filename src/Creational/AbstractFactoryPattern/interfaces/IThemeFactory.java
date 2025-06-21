@@ -1,4 +1,4 @@
-package AbstractFactoryPattern.interfaces;
+package Creational.AbstractFactoryPattern.interfaces;
 
 public interface IThemeFactory {
     public ITextColor createTextColor();
