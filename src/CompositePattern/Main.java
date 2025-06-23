@@ -1,61 +1,32 @@
 package CompositePattern;
 
-import CompositePattern.impl.Composite;
-import CompositePattern.impl.Leaf;
-import CompositePattern.interfaces.Component;
-
-import java.util.ArrayList;
-import java.util.List;
+import CompositePattern.impl.File;
+import CompositePattern.impl.Folder;
+import CompositePattern.interfaces.FileSystemItem;
 
 public class Main {
     public static void main(String[] args) {
-        List<Component> menuList = createMenus();
-        Component restaurant = new Composite("Welcome to GOVIL'S RESTAURANT", menuList);
-        System.out.println(restaurant.operation());
-    }
+        FileSystemItem file1 = new File("readme.txt", 5);
+        FileSystemItem file2 = new File("photo.jpg", 1500);
+        FileSystemItem file3 = new File("data.csv", 300);
 
-    private static List<Component> createMenus() {
-        List<Component> menuList = new ArrayList<>();
-        menuList.add(createBreakfastMenu());
-        menuList.add(createLunchMenu());
-        menuList.add(createDinnerMenu());
-        return menuList;
-    }
+        Folder documents = new Folder("Documents");
+        documents.addItem(file1);
+        documents.addItem(file3);
 
-    private static Component createBreakfastMenu() {
-        List<Component> breakfastMenuList = new ArrayList<>();
-        breakfastMenuList.add(new Leaf("Scrambled Eggs"));
-        breakfastMenuList.add(new Leaf("Bread and Toast"));
-        return new Composite("BREAKFAST MENU", breakfastMenuList);
-    }
+        Folder pictures = new Folder("Pictures");
+        pictures.addItem(file2);
 
-    private static Component createLunchMenu() {
-        List<Component> lunchMenuList = new ArrayList<>();
-        lunchMenuList.add(new Leaf("Dal Makhani"));
-        lunchMenuList.add(new Leaf("Rajma Masala"));
-        lunchMenuList.add(createLunchSpecials());
-        return new Composite("LUNCH MENU", lunchMenuList);
-    }
+        Folder home = new Folder("Home");
+        home.addItem(documents);
+        home.addItem(pictures);
 
-    private static Component createLunchSpecials() {
-        List<Component> lunchSpecialsList = new ArrayList<>();
-        lunchSpecialsList.add(new Leaf("Butter Chicken"));
-        lunchSpecialsList.add(new Leaf("Paneer Lababdar"));
-        return new Composite("--- Lunch Specials ---", lunchSpecialsList);
-    }
+        System.out.println("------ File Structure ------");
+        home.printStructure("");
 
-    private static Component createDinnerMenu() {
-        List<Component> dinnerMenuList = new ArrayList<>();
-        dinnerMenuList.add(new Leaf("Margherita Pizza"));
-        dinnerMenuList.add(new Leaf("Bolognese Pasta"));
-        dinnerMenuList.add(createDessertMenu());
-        return new Composite("DINNER MENU", dinnerMenuList);
-    }
+        System.out.println("\nTotal size: " + home.getSize() + " KB");
 
-    private static Component createDessertMenu() {
-        List<Component> dessertMenuList = new ArrayList<>();
-        dessertMenuList.add(new Leaf("Gulab Jamun"));
-        dessertMenuList.add(new Leaf("Tiramisu"));
-        return new Composite("--- Desserts ---", dessertMenuList);
+        System.out.println("------ Deleting All ------");
+        home.delete();
     }
 }
