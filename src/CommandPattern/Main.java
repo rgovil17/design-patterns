@@ -1,10 +1,10 @@
 package CommandPattern;
 
 import CommandPattern.impl.InvokerRemoteControl;
-import CommandPattern.impl.commands.HotTubStartCommand;
+import CommandPattern.impl.commands.LightOffCommand;
+import CommandPattern.impl.commands.SetTemperatureCommand;
 import CommandPattern.impl.commands.LightOnCommand;
-import CommandPattern.impl.commands.MacroCommand;
-import CommandPattern.impl.receivers.HotTubReceiver;
+import CommandPattern.impl.receivers.ThermostatReceiver;
 import CommandPattern.impl.receivers.LightReceiver;
 import CommandPattern.interfaces.ICommand;
 
@@ -12,36 +12,30 @@ public class Main {
     public static void main(String[] args) {
         // Appliances in our home
         LightReceiver light = new LightReceiver();
-        HotTubReceiver hotTub = new HotTubReceiver();
+        ThermostatReceiver thermostat = new ThermostatReceiver();
 
         // Creating command objects
-        LightOnCommand lightOnCommand = new LightOnCommand(light);
-        HotTubStartCommand hotTubStartCommand = new HotTubStartCommand(hotTub);
-
-        // Creating Macro command
-        ICommand[] commands = {lightOnCommand, hotTubStartCommand};
-        MacroCommand macroCommand = new MacroCommand(commands);
+        ICommand lightOn = new LightOnCommand(light);
+        ICommand lightOff = new LightOffCommand(light);
+        ICommand setTemp22 = new SetTemperatureCommand(thermostat, 22);
 
         // Invoker object
         InvokerRemoteControl remoteControl = new InvokerRemoteControl();
 
-        // Setting commands for our remote control (e.g. using an app)
-        remoteControl.setCommand1(lightOnCommand);
-        remoteControl.setCommand2(hotTubStartCommand);
-        remoteControl.setCommand3(macroCommand);
+        // Simulate usage
+        remoteControl.setCommand(lightOn);
+        remoteControl.press();
 
-        // Using the buttons
-        remoteControl.buttonOnePressed();
-        remoteControl.buttonTwoPressed();
-        remoteControl.undoButtonPushed();
+        remoteControl.setCommand(setTemp22);
+        remoteControl.press();
 
-        remoteControl.buttonOnePressed();
-        remoteControl.undoButtonPushed();
+        remoteControl.setCommand(lightOff);
+        remoteControl.press();
 
         System.out.println("============");
 
-        // Using macro command
-        remoteControl.buttonThreePressed();
-        remoteControl.undoButtonPushed();
+        remoteControl.undoLast();
+        remoteControl.undoLast();
+        remoteControl.undoLast();
     }
 }

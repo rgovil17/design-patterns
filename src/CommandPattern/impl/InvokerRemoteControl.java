@@ -2,43 +2,31 @@ package CommandPattern.impl;
 
 import CommandPattern.interfaces.ICommand;
 
+import java.util.Stack;
+
 public class InvokerRemoteControl {
-    // Remote Control with three slots and an undo button
-    ICommand command1;
-    ICommand command2;
-    ICommand command3;
-    ICommand undoCommand;
+    private ICommand currentCommand;
+    private Stack<ICommand> history = new Stack<>();
 
-    public InvokerRemoteControl() {}
-
-    public void setCommand1(ICommand command1) {
-        this.command1 = command1;
+    public void setCommand(ICommand command) {
+        this.currentCommand = command;
     }
 
-    public void setCommand2(ICommand command2) {
-        this.command2 = command2;
+    public void press() {
+        if (currentCommand != null) {
+            currentCommand.execute();
+            history.push(currentCommand);
+        } else {
+            System.out.println("No command assigned.");
+        }
     }
 
-    public void setCommand3(ICommand command3) {
-        this.command3 = command3;
-    }
-
-    public void buttonOnePressed() {
-        this.command1.execute();
-        this.undoCommand = this.command1;
-    }
-
-    public void buttonTwoPressed() {
-        this.command2.execute();
-        this.undoCommand = this.command2;
-    }
-
-    public void buttonThreePressed() {
-        this.command3.execute();
-        this.undoCommand = this.command3;
-    }
-
-    public void undoButtonPushed() {
-        this.undoCommand.unexecute();
+    public void undoLast() {
+        if (!history.isEmpty()) {
+            ICommand lastCommand = history.pop();
+            lastCommand.undo();
+        } else {
+            System.out.println("Nothing to undo.");
+        }
     }
 }
