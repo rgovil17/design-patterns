@@ -1,5 +1,5 @@
 package IteratorPattern.interfaces;
 
-public interface Iterable<T> {
+public interface IterableCollection<T> {
     public Iterator<T> createIterator();
 }

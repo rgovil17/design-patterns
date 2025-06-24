@@ -20,12 +20,7 @@ public class EmployeeIterator implements Iterator<Employee> {
     }
 
     @Override
-    public void next() {
-        this.position++;
-    }
-
-    @Override
-    public Employee current() {
-        return this.employees.get(this.position);
+    public Employee next() {
+        return this.employees.get(this.position++);
     }
 }

@@ -1,6 +1,6 @@
 package IteratorPattern;
 
-import IteratorPattern.impl.EmployeeIterable;
+import IteratorPattern.impl.EmployeeCollection;
 import IteratorPattern.interfaces.Iterator;
 
 import java.util.ArrayList;
@@ -13,12 +13,11 @@ public class Main {
         employees.add(new Employee("Catherine Knight", 25000));
         employees.add(new Employee("George Best", 17000));
 
-        EmployeeIterable empIterable = new EmployeeIterable(employees);
-        Iterator<Employee> empIterator = empIterable.createIterator();
+        EmployeeCollection empCollection = new EmployeeCollection(employees);
+        Iterator<Employee> empIterator = empCollection.createIterator();
 
         while (empIterator.hasNext()) {
-            System.out.println(empIterator.current());
-            empIterator.next();
+            System.out.println(empIterator.next());
         }
     }
 }
