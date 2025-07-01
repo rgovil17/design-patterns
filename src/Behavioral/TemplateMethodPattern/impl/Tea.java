@@ -1,25 +1,21 @@
-package TemplateMethodPattern.impl;
+package Behavioral.TemplateMethodPattern.impl;
 
-import TemplateMethodPattern.interfaces.CaffeinatedBeverage;
+import Behavioral.TemplateMethodPattern.interfaces.CaffeinatedBeverage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Coffee extends CaffeinatedBeverage {
+public class Tea extends CaffeinatedBeverage {
+
     @Override
     public void brew() {
-        System.out.println("Dripping Coffee through filter...");
+        System.out.println("Steeping the tea...");
     }
 
     @Override
     public void addCondiments() {
-        System.out.println("Adding Sugar and Milk...");
-    }
-
-    @Override
-    public void ready() {
-        System.out.println("Your coffee is ready!");
+        System.out.println("Adding Lemon...");
     }
 
     @Override
@@ -28,8 +24,13 @@ public class Coffee extends CaffeinatedBeverage {
         return answer.toLowerCase().startsWith("y");
     }
 
+    @Override
+    public void ready() {
+        System.out.println("Your tea is ready!");
+    }
+
     private String getUserInput() { String answer = null;
-        System.out.print("Would you like milk and sugar with your coffee (y/n)? ");
+        System.out.print("Would you like lemon with your tea (y/n)? ");
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         try {
             answer = in.readLine();

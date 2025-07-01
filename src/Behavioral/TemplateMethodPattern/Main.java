@@ -1,7 +1,7 @@
-package TemplateMethodPattern;
+package Behavioral.TemplateMethodPattern;
 
-import TemplateMethodPattern.impl.Coffee;
-import TemplateMethodPattern.impl.Tea;
+import Behavioral.TemplateMethodPattern.impl.Coffee;
+import Behavioral.TemplateMethodPattern.impl.Tea;
 
 public class Main {
     public static void main(String[] args) {

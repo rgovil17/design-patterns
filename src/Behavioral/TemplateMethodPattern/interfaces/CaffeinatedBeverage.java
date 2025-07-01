@@ -1,4 +1,4 @@
-package TemplateMethodPattern.interfaces;
+package Behavioral.TemplateMethodPattern.interfaces;
 
 public abstract class CaffeinatedBeverage {
 
